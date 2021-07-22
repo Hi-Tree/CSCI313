@@ -39,7 +39,7 @@ class StudentRecord : public Student{
             }
             this->setFirstName(infor[0]);
             this->setLastName(infor[1]);
-            if(equal(infor[2]) == true){
+            if(checkID(infor[2]) == true){
                 this->setIDNo(infor[2]); 
             } 
             else{
