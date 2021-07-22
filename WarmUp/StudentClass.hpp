@@ -24,7 +24,7 @@ class Student{
             firstName = fName;
         }
         void setIDNo(string ID){
-            if(equal(ID) == true){
+            if(checkID(ID) == true){
                 IDNo = ID;
             }
             else{
@@ -68,8 +68,14 @@ class Student{
         string toString(){
             return "First Name: " + this->getFirstName() + "\n" + "Last Name: " + this->getLastName() + "\n" + "ID No: " + this->getIDNo() + "\n";
         }
-        bool equal(string ID){
+        bool checkID(string ID){
             if(this->getLastName()[0] == ID[0] && stoi(ID.substr(1,6)) && ID.size() == 7){
+                return true;
+            }
+            return false;
+        }
+        bool equal(Student a){
+            if(this->getIDNo() == a.getIDNo()){
                 return true;
             }
             return false;
