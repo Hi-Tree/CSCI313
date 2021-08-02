@@ -1,6 +1,15 @@
-/*  This is a fully user interactive program 
-    Please do not modify code in the main file
-    Follow instructions from the terminal to navigate.
+/*  
+    Description: 
+    This is a fully user interactive program 
+    Once the course is closed students may be placed on the 
+    Waiting list or simply refuse to register for the course 
+    If a student chooses to wait they will automatically 
+    Get enrolled in the course given a space has opened up.
+
+    Suggested Directions:
+    Please Follow Terminal Directions To Navigate Through The Process
+    For The Purposes Of This Project We Will Begin With A Full Class 
+    *Try Adding Another Student*
 */
 #include "StudentRecords.hpp"
 #include <iostream> 
@@ -13,6 +22,7 @@ int main(){
   head = new ListNode();
   ListNode* temp = head;
   Student m;
+  string an;
   Student array[10];
 
   cout<<"Course title: CSCI 313 \nWould you like to continue to course actions? (Y/N)\n";
@@ -44,12 +54,18 @@ int main(){
     if(answer == "Add Student"){
       if(temp->size()==10){
         cout<<"You have reached maximum class capacity."<<endl;
+        cout<<"Would you like to add the student to the waitlist? (Y/N)"<<endl;
+        cin>>an;
+        if(an=="Y"){
+          
+        }
       }
       else{
         cout<<"Please enter: First_Name  Last_Name  ID_No  (Do not leave anything blank, separate fields by a single space)."<<endl;
         getline(cin,info);
         m = Student(info);
         temp->insertSorted(m);
+        cout<<"Student Was Succesfully Added."<<endl;
       }
     }
     if(answer == "Delete Student"){
@@ -77,6 +93,12 @@ int main(){
       cout<<array[i].toString()<<endl;
       }
     }
+    if(answer == "Search Student List"){
+      cout<<"Please enter: First_Name  Last_Name  ID_No  (Do not leave anything blank, separate fields by a single space)."<<endl;
+      getline(cin,info);
+      m = Student(info);
+      temp->searchList(m);
+    }
     if(answer=="Save Changes"){
       if(array[0].getFirstName()==""){
         cout<<"WARNING: Final Roster Does NOT Contain Any Students. An Empty Roster Will Be Created."<<endl;
@@ -85,6 +107,7 @@ int main(){
       for(int i=0;i<temp->size();i++){
         ofs<<array[i].getFirstName() +" "+ array[i].getLastName() +" "+ array[i].getIDNo()<<endl;
       }
+      cout<<"Final Roster Was Successfully Saved."<<endl;
     }
     if(answer == "Search Roster"){
       cout<<"Please enter: First_Name  Last_Name  ID_No  (Do not leave anything blank, separate fields by a single space)."<<endl;
@@ -109,9 +132,6 @@ int main(){
           cout<<"Student Not Found."<<endl;
         }
       }  
-    }
-    else{
-      cout<<"Did you mean you select a different action?"<<endl;
     }
       cout<<"Would you like to continue? (Y/N)"<<endl;
       cin>>x;
