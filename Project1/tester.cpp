@@ -1,15 +1,6 @@
-/*  
-    Description: 
-    This is a fully user interactive program 
-    Once the course is closed students may be placed on the 
-    Waiting list or simply refuse to register for the course 
-    If a student chooses to wait they will automatically 
-    Get enrolled in the course given a space has opened up.
-
-    Suggested Directions:
-    Please Follow Terminal Directions To Navigate Through The Process
-    For The Purposes Of This Project We Will Begin With A Full Class 
-    *Try Adding Another Student*
+/*  This is a fully user interactive program 
+    Please do not modify code in the main file
+    Follow instructions from the terminal to navigate.
 */
 #include "StudentRecords.hpp"
 #include <iostream> 
@@ -22,7 +13,6 @@ int main(){
   head = new ListNode();
   ListNode* temp = head;
   Student m;
-  string an;
   Student array[10];
 
   cout<<"Course title: CSCI 313 \nWould you like to continue to course actions? (Y/N)\n";
@@ -54,11 +44,6 @@ int main(){
     if(answer == "Add Student"){
       if(temp->size()==10){
         cout<<"You have reached maximum class capacity."<<endl;
-        cout<<"Would you like to add the student to the waitlist? (Y/N)"<<endl;
-        cin>>an;
-        if(an=="Y"){
-          
-        }
       }
       else{
         cout<<"Please enter: First_Name  Last_Name  ID_No  (Do not leave anything blank, separate fields by a single space)."<<endl;
