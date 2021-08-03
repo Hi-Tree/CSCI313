@@ -53,11 +53,12 @@ class QueueClass{
             
             bac->prev->prev->next = nullptr;
             bac->prev = bac->prev->prev;//in case of empty this should point to head!
+            delete(temp);
             //cout<<bac->data.toString()<<endl;
             return deleted;
         }
         bool isEmpty(QueueClass* bac){
-            if(this->next == bac){
+            if(this->next == bac || this->next == nullptr){
                 return true;
             }
             return false;

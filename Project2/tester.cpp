@@ -87,7 +87,7 @@ int main(){
       m = Student(info);
       temp->deleteStudent(m);
       
-      if(!front->isEmpty(back) && temp->size()<10){
+      if(front->isEmpty(back) == false && temp->size()<10){
         m = front->deQueue(back);
         temp->insertSorted(m);
         cout<<"\nA Wait-Listed Student Has Been Added To The Course In Order Of Registration.";
